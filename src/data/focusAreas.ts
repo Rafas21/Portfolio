@@ -1,112 +1,111 @@
 import type { FocusArea } from '@/types'
 
 /**
- * Áreas de foco (seção DevOps / Cloud).
- * Descrevem o escopo de atuação/interesse informado — não afirmam nível de experiência.
- * Os tópicos são conceitos da área; ajuste para refletir exatamente o que você domina.
+ * Seção DevOps / Cloud. Cada área lista as ferramentas usadas nas experiências profissionais
+ * (ver src/data/experience.ts).
  */
 export const focusAreas: FocusArea[] = [
   {
     id: 'linux',
     icon: 'terminal',
-    title: { pt: 'Linux', en: 'Linux' },
+    title: { pt: 'Servidores', en: 'Servers' },
     description: {
-      pt: 'Administração de servidores, shell, permissões, serviços e processos.',
-      en: 'Server administration, shell, permissions, services and processes.',
+      pt: 'Administração de servidores Linux (Ubuntu) e Windows, físicos e em VPS.',
+      en: 'Administration of Linux (Ubuntu) and Windows servers, on-premises and on VPS.',
     },
-    topics: ['Shell', 'systemd', 'SSH', 'Permissions'],
+    topics: ['Ubuntu', 'Windows Server', 'SSH', 'Active Directory'],
   },
   {
     id: 'containers',
     icon: 'container',
     title: { pt: 'Contêineres', en: 'Containers' },
     description: {
-      pt: 'Empacotamento de aplicações em imagens reproduzíveis e ambientes isolados.',
-      en: 'Packaging applications as reproducible images and isolated environments.',
+      pt: 'Conteinerização de aplicações e orquestração de contêineres.',
+      en: 'Application containerization and container orchestration.',
     },
-    topics: ['Docker', 'Dockerfile', 'Compose'],
-  },
-  {
-    id: 'web-server',
-    icon: 'globe',
-    title: { pt: 'Servidores web', en: 'Web servers' },
-    description: {
-      pt: 'Proxy reverso, TLS e roteamento de tráfego para aplicações.',
-      en: 'Reverse proxying, TLS and traffic routing to applications.',
-    },
-    topics: ['Nginx', 'Reverse proxy', 'HTTPS'],
-  },
-  {
-    id: 'git',
-    icon: 'git',
-    title: { pt: 'Git / GitHub', en: 'Git / GitHub' },
-    description: {
-      pt: 'Versionamento, branches, pull requests e revisão de código.',
-      en: 'Version control, branching, pull requests and code review.',
-    },
-    topics: ['Git', 'GitHub', 'Pull requests'],
+    topics: ['Docker', 'Kubernetes'],
   },
   {
     id: 'cicd',
     icon: 'workflow',
     title: { pt: 'CI/CD', en: 'CI/CD' },
     description: {
-      pt: 'Pipelines de build, teste e deploy automatizados a cada alteração.',
-      en: 'Automated build, test and deploy pipelines on every change.',
+      pt: 'Construção e sustentação de pipelines de integração e entrega contínua.',
+      en: 'Building and maintaining continuous integration and delivery pipelines.',
     },
-    topics: ['Pipelines', 'Build', 'Deploy'],
+    topics: ['GitHub Actions', 'Git', 'GitHub'],
   },
   {
     id: 'cloud',
     icon: 'cloud',
     title: { pt: 'Cloud', en: 'Cloud' },
     description: {
-      pt: 'Computação, armazenamento e rede em provedores de nuvem.',
-      en: 'Compute, storage and networking on cloud providers.',
+      pt: 'Infraestrutura em AWS e VPS, incluindo migração de servidores para a nuvem.',
+      en: 'Infrastructure on AWS and VPS, including migrating servers to the cloud.',
     },
-    topics: ['Compute', 'Storage', 'IAM'],
-  },
-  {
-    id: 'networking',
-    icon: 'network',
-    title: { pt: 'Redes', en: 'Networking' },
-    description: {
-      pt: 'Fundamentos que sustentam a comunicação entre serviços.',
-      en: 'The fundamentals behind service-to-service communication.',
-    },
-    topics: ['TCP/IP', 'DNS', 'HTTP/HTTPS', 'Firewall'],
+    topics: ['AWS', 'VPS', 'VPN'],
   },
   {
     id: 'monitoring',
     icon: 'activity',
     title: { pt: 'Monitoramento', en: 'Monitoring' },
     description: {
-      pt: 'Logs, métricas e alertas para saber o que acontece em produção.',
-      en: 'Logs, metrics and alerts to know what happens in production.',
+      pt: 'Métricas, logs e alertas de infraestrutura com monitoramento contínuo.',
+      en: 'Infrastructure metrics, logs and alerts with continuous monitoring.',
     },
-    topics: ['Logs', 'Metrics', 'Alerts'],
+    topics: ['Grafana', 'Zabbix'],
+  },
+  {
+    id: 'networking',
+    icon: 'network',
+    title: { pt: 'Redes', en: 'Networking' },
+    description: {
+      pt: 'Gerenciamento de redes corporativas cabeadas e sem fio.',
+      en: 'Management of wired and wireless corporate networks.',
+    },
+    topics: ['WAN', 'LAN', 'WLAN', 'Ubiquiti UniFi'],
   },
   {
     id: 'security',
     icon: 'shield',
     title: { pt: 'Segurança', en: 'Security' },
     description: {
-      pt: 'Menor privilégio, gestão de segredos e superfície de ataque reduzida.',
-      en: 'Least privilege, secrets management and a reduced attack surface.',
+      pt: 'Regras de firewall, filtragem de conteúdo, controle de acesso e autenticação.',
+      en: 'Firewall rules, content filtering, access control and authentication.',
     },
-    topics: ['Least privilege', 'Secrets', 'Hardening'],
+    topics: ['pfSense', 'Fortinet', 'SSL/TLS', 'Keycloak'],
   },
   {
     id: 'automation',
     icon: 'bot',
     title: { pt: 'Automação', en: 'Automation' },
     description: {
-      pt: 'Scripts e ferramentas para eliminar tarefas manuais e repetitivas.',
-      en: 'Scripts and tooling to remove manual, repetitive work.',
+      pt: 'Automação de processos financeiros, de vendas e administrativos.',
+      en: 'Automation of finance, sales and administrative processes.',
     },
-    topics: ['Scripting', 'Scheduled jobs', 'IaC'],
+    topics: ['Python', 'Power Automate'],
+  },
+  {
+    id: 'backend',
+    icon: 'server',
+    title: { pt: 'Backend', en: 'Backend' },
+    description: {
+      pt: 'APIs RESTful e sistemas de grande escala para o setor público.',
+      en: 'RESTful APIs and large-scale systems for the public sector.',
+    },
+    topics: ['Java', 'Spring', 'Python', 'Django'],
+  },
+  {
+    id: 'support',
+    icon: 'wrench',
+    title: { pt: 'Suporte e ITSM', en: 'Support & ITSM' },
+    description: {
+      pt: 'Troubleshooting e suporte técnico N1 a N3, com help desk estruturado.',
+      en: 'Troubleshooting and L1–L3 technical support with a structured help desk.',
+    },
+    topics: ['GLPI', 'Troubleshooting', 'N2/N3'],
   },
 ]
 
-/** Tecnologias exibidas no Hero (áreas de foco, não lista de experiência). */
-export const heroFocus = ['Backend', 'APIs', 'Linux', 'Docker', 'CI/CD', 'Cloud', 'Networking']
+/** Tecnologias do headline do LinkedIn, exibidas no Hero. */
+export const heroFocus = ['Linux', 'Docker', 'Kubernetes', 'AWS', 'GitHub Actions', 'Python', 'Grafana', 'pfSense']

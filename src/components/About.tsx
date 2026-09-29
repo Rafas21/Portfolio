@@ -1,5 +1,7 @@
-import { Briefcase, Globe2, MapPin, Sparkles } from 'lucide-react'
+import { Briefcase, Globe2, GraduationCap, MapPin, Sparkles } from 'lucide-react'
 import type { ReactNode } from 'react'
+import { education } from '@/data/education'
+import { experiences } from '@/data/experience'
 import { profile } from '@/data/profile'
 import { site } from '@/data/site'
 import { useLanguage } from '@/hooks/useLanguage'
@@ -22,6 +24,8 @@ function Fact({ icon, label, children }: { icon: ReactNode; label: string; child
 
 export function About() {
   const { t, l } = useLanguage()
+  const current = experiences.find((e) => e.end === null)
+  const degree = education[0]
 
   return (
     <Section id="about" eyebrow={t.about.eyebrow} title={t.about.title}>
@@ -39,7 +43,7 @@ export function About() {
             <h3 className="mb-5 font-mono text-xs tracking-wider text-subtle uppercase">{t.about.quickFacts}</h3>
             <dl className="space-y-4">
               <Fact icon={<Briefcase className="size-4" aria-hidden />} label={t.about.role}>
-                {l(profile.headline)}
+                {current ? `${l(current.role)} · ${current.company}` : l(profile.headline)}
               </Fact>
               {profile.location && (
                 <Fact icon={<MapPin className="size-4" aria-hidden />} label={t.about.location}>
@@ -51,9 +55,22 @@ export function About() {
                   {l(profile.availability)}
                 </Fact>
               )}
-              <Fact icon={<Globe2 className="size-4" aria-hidden />} label={t.about.languages}>
-                Português · English
-              </Fact>
+              {degree && (
+                <Fact icon={<GraduationCap className="size-4" aria-hidden />} label={t.about.education}>
+                  {l(degree.course)} · {degree.institution}
+                </Fact>
+              )}
+              {profile.languages.length > 0 && (
+                <Fact icon={<Globe2 className="size-4" aria-hidden />} label={t.about.languages}>
+                  <ul className="space-y-0.5">
+                    {profile.languages.map((lang) => (
+                      <li key={lang.name.en}>
+                        {l(lang.name)} <span className="text-subtle">· {l(lang.level)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </Fact>
+              )}
             </dl>
           </Card>
         </Reveal>

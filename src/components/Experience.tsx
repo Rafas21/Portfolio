@@ -44,11 +44,15 @@ export function Experience() {
                       {formatPeriod(exp.start, exp.end, locale, t.experience.present)}
                     </p>
                   </div>
-                  {(exp.location || exp.employmentType) && (
+                  {(exp.location || exp.employmentType || exp.workplace) && (
                     <p className="mt-1 text-sm text-subtle">
-                      {[exp.employmentType && l(exp.employmentType), exp.location && l(exp.location)].filter(Boolean).join(' · ')}
+                      {[exp.employmentType, exp.location, exp.workplace]
+                        .filter((v) => v !== undefined)
+                        .map((v) => l(v))
+                        .join(' · ')}
                     </p>
                   )}
+                  {exp.summary && <p className="mt-4 max-w-3xl text-sm leading-relaxed text-fg/90 sm:text-base">{l(exp.summary)}</p>}
                   {exp.responsibilities.length > 0 && (
                     <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted sm:text-base">
                       {exp.responsibilities.map((r, j) => (

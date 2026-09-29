@@ -1,3 +1,4 @@
+import { profile } from '@/data/profile'
 import { skillGroups } from '@/data/skills'
 import { site } from '@/data/site'
 import { useLanguage } from '@/hooks/useLanguage'
@@ -10,6 +11,7 @@ import { Tag } from './ui/Tag'
 
 export function Skills() {
   const { t, l } = useLanguage()
+  const hasLearning = skillGroups.some((g) => g.learning.length > 0)
   const groups = site.showPlaceholders
     ? skillGroups
     : skillGroups.filter((g) => g.professional.length + g.learning.length > 0)
@@ -25,9 +27,11 @@ export function Skills() {
           <span className="inline-flex items-center gap-2">
             <span aria-hidden className="size-2 rounded-full bg-accent" /> {t.skills.professional}
           </span>
-          <span className="inline-flex items-center gap-2">
-            <span aria-hidden className="size-2 rounded-full border border-dashed border-subtle" /> {t.skills.learning}
-          </span>
+          {hasLearning && (
+            <span className="inline-flex items-center gap-2">
+              <span aria-hidden className="size-2 rounded-full border border-dashed border-subtle" /> {t.skills.learning}
+            </span>
+          )}
         </div>
       }
     >
@@ -78,6 +82,21 @@ export function Skills() {
           )
         })}
       </div>
+
+      {profile.currentlyLearning.length > 0 && (
+        <Reveal>
+          <div className="mt-6 flex flex-col gap-3 rounded-xl border border-dashed border-border-strong p-5 sm:flex-row sm:items-center">
+            <p className="shrink-0 text-sm font-medium">{t.skills.deepening}</p>
+            <ul className="flex flex-wrap gap-1.5">
+              {profile.currentlyLearning.map((item) => (
+                <li key={item.en}>
+                  <Tag variant="dashed">{l(item)}</Tag>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+      )}
     </Section>
   )
 }

@@ -1,6 +1,6 @@
 # Rafael Souza — Portfolio
 
-Portfólio profissional (PT/EN) com foco em desenvolvimento de software, backend, DevOps e cloud.
+Portfólio profissional (PT/EN) de Rafael Souza, Engenheiro DevOps em Goiânia — Linux, Docker, Kubernetes, AWS, CI/CD, redes e Python.
 
 - **LinkedIn:** https://www.linkedin.com/in/rafael-souza-dev21/
 - **GitHub:** https://github.com/Rafas21

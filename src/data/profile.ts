@@ -1,48 +1,44 @@
 import type { Profile } from '@/types'
+import { fullYearsSince } from '@/utils/experience'
+
+/** Início da carreira em tecnologia (Grupo Pinauto). Usado no indicador de experiência. */
+export const CAREER_START = '2022-11'
 
 /**
- * Dados pessoais. Edite este arquivo para alterar Hero, Sobre, Contato, Footer e SEO dinâmico.
- *
- * FONTE: GitHub público (nome, usuário) e URL do LinkedIn informada.
- * O conteúdo do LinkedIn NÃO pôde ser lido automaticamente — campos marcados com TODO
- * devem ser revisados com as informações reais do perfil.
+ * Dados pessoais. Edite este arquivo para alterar Hero, Sobre, Contato e Footer.
+ * Fontes: LinkedIn (linkedin.com/in/rafael-souza-dev21) e currículo.
  */
 export const profile: Profile = {
   name: 'Rafael Souza',
 
-  // TODO(LinkedIn): substituir pelo headline exato do LinkedIn.
   headline: {
-    pt: 'Desenvolvedor de Software · Backend · DevOps · Cloud',
-    en: 'Software Developer · Backend · DevOps · Cloud',
+    pt: 'Engenheiro DevOps · Cloud & Infraestrutura',
+    en: 'DevOps Engineer · Cloud & Infrastructure',
   },
 
-  // TODO(LinkedIn): ajustar ao resumo real do perfil.
   summary: {
-    pt: 'Desenvolvo aplicações backend e cuido do caminho até produção: versionamento, contêineres, pipelines e infraestrutura em Linux e cloud.',
-    en: 'I build backend applications and care about the path to production: version control, containers, pipelines and infrastructure on Linux and the cloud.',
+    pt: 'Administro servidores Linux e Windows, infraestrutura AWS, contêineres com Docker e Kubernetes e pipelines CI/CD no GitHub Actions — com base em redes, Python e automação.',
+    en: 'I manage Linux and Windows servers, AWS infrastructure, containers with Docker and Kubernetes, and CI/CD pipelines on GitHub Actions — built on a foundation of networking, Python and automation.',
   },
 
-  // TODO(LinkedIn): reescrever com a trajetória real (empresas, tempo de experiência, formação).
   about: [
     {
-      pt: 'Sou desenvolvedor de software com foco em backend e em tudo o que envolve colocar uma aplicação em produção de forma confiável. Meu interesse está na interseção entre código e infraestrutura: APIs bem definidas, bancos de dados, ambientes Linux, redes e automação.',
-      en: 'I am a software developer focused on backend development and on everything involved in running an application reliably in production. My interest lies where code meets infrastructure: well-defined APIs, databases, Linux environments, networking and automation.',
+      pt: 'Sou Analista DevOps na Terrano Urbanismo, em Goiânia, e trabalho com tecnologia desde 2022. Comecei no suporte técnico e na infraestrutura de redes, passei pelo desenvolvimento de software e hoje concentro minha atuação em DevOps e infraestrutura em nuvem.',
+      en: 'I am a DevOps Analyst at Terrano Urbanismo in Goiânia, Brazil, and have worked in technology since 2022. I started in technical support and network infrastructure, moved through software development, and now focus on DevOps and cloud infrastructure.',
     },
     {
-      pt: 'Gosto de problemas que exigem entender o sistema de ponta a ponta — da requisição que chega ao servidor até o dado persistido — e de transformar processos manuais em fluxos automatizados e reproduzíveis.',
-      en: 'I enjoy problems that require understanding a system end to end — from the request hitting the server to the data being persisted — and turning manual processes into automated, reproducible workflows.',
+      pt: 'No dia a dia trabalho com Linux, redes, Git e Python. Administro servidores Linux e Windows, AWS e VPS, contêineres com Docker e Kubernetes, pipelines no GitHub Actions, firewalls pfSense e Fortinet e monitoramento com Grafana e Zabbix. Como desenvolvedor, atuei com Java/Spring, React e APIs REST em um sistema de benefícios do Estado de Goiás.',
+      en: 'Day to day I work with Linux, networking, Git and Python. I manage Linux and Windows servers, AWS and VPS hosts, containers with Docker and Kubernetes, GitHub Actions pipelines, pfSense and Fortinet firewalls, and monitoring with Grafana and Zabbix. As a developer, I worked with Java/Spring, React and REST APIs on a public benefits system for the State of Goiás.',
     },
     {
-      pt: 'Busco oportunidades como desenvolvedor backend, DevOps ou Cloud Engineer, no Brasil ou no exterior, em times que valorizem boas práticas de engenharia, documentação e entrega contínua.',
-      en: 'I am looking for opportunities as a backend developer, DevOps or Cloud Engineer, in Brazil or abroad, on teams that value sound engineering practices, documentation and continuous delivery.',
+      pt: 'Gosto de aprender na prática e de entender o porquê por trás de cada ferramenta, não só o como. Meu foco é entregar infraestrutura de forma automatizada, confiável e escalável — e transformar processos manuais em fluxos automatizados.',
+      en: 'I learn best by doing and like to understand the why behind each tool, not just the how. My focus is delivering infrastructure that is automated, reliable and scalable — and turning manual processes into automated workflows.',
     },
   ],
 
-  // TODO(LinkedIn): informar cidade/país (ex.: { pt: 'São Paulo, Brasil', en: 'São Paulo, Brazil' }).
-  location: null,
+  location: { pt: 'Goiânia, GO, Brasil', en: 'Goiânia, Brazil' },
 
-  // TODO: informar o e-mail profissional que deve aparecer publicamente.
-  email: '',
+  email: 'fael62485@gmail.com',
 
   githubUsername: 'Rafas21',
 
@@ -51,13 +47,34 @@ export const profile: Profile = {
     github: 'https://github.com/Rafas21',
   },
 
-  // TODO: adicionar o PDF em /public e informar o caminho, ex.: { pt: '/cv-pt.pdf', en: '/cv-en.pdf' }.
+  // Para oferecer download do CV: coloque o PDF em /public e informe o caminho,
+  // ex.: { pt: '/cv-rafael-souza-pt.pdf', en: '/cv-rafael-souza-en.pdf' }.
   resumeUrl: null,
 
-  // TODO: confirmar disponibilidade (ex.: aberto a remoto / relocação para a Europa).
+  // Ex.: { pt: 'Aberto a oportunidades · híbrido, remoto ou presencial', en: 'Open to opportunities · hybrid, remote or on-site' }
   availability: null,
 
-  // Somente números comprováveis. Exemplo:
-  // { value: '3+', label: { pt: 'anos de experiência', en: 'years of experience' } },
-  highlights: [],
+  highlights: [
+    {
+      value: `${fullYearsSince(CAREER_START)}+`,
+      label: { pt: 'anos em tecnologia', en: 'years in tech' },
+    },
+    { value: '4', label: { pt: 'empresas', en: 'companies' } },
+    { value: 'ADS', label: { pt: 'tecnólogo · Anhanguera', en: 'systems development degree' } },
+    { value: 'B1', label: { pt: 'inglês', en: 'English level' } },
+  ],
+
+  languages: [
+    { name: { pt: 'Português', en: 'Portuguese' }, level: { pt: 'Nativo', en: 'Native' } },
+    { name: { pt: 'Inglês', en: 'English' }, level: { pt: 'Intermediário (B1)', en: 'Intermediate (B1)' } },
+    { name: { pt: 'Espanhol', en: 'Spanish' }, level: { pt: 'Básico (A2)', en: 'Elementary (A2)' } },
+    { name: { pt: 'Francês', en: 'French' }, level: { pt: 'Iniciante (A1)', en: 'Beginner (A1)' } },
+  ],
+
+  // Conforme o LinkedIn: "estou expandindo meu conhecimento em Docker, banco de dados e AWS".
+  currentlyLearning: [
+    { pt: 'Docker', en: 'Docker' },
+    { pt: 'Bancos de dados', en: 'Databases' },
+    { pt: 'AWS', en: 'AWS' },
+  ],
 }

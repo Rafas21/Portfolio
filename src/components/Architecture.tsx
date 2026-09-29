@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight, Boxes, Container, Database, GitCommitHorizontal, Globe, Hammer, Rocket, Server, ShieldCheck, TestTube2, User } from 'lucide-react'
+import { Activity, ArrowDown, ArrowRight, Boxes, Container, Database, GitCommitHorizontal, Globe, Hammer, Rocket, Server, ShieldCheck, TestTube2, User } from 'lucide-react'
 import { useState, type ComponentType } from 'react'
 import type { LucideProps } from 'lucide-react'
 import { useLanguage } from '@/hooks/useLanguage'
@@ -15,52 +15,61 @@ interface Node {
   detail: Localized
 }
 
-/** Arquitetura de referência (ilustrativa). Ajuste para refletir um projeto real, se desejar. */
+/**
+ * Arquitetura de referência (ilustrativa), montada com as ferramentas usadas nas experiências:
+ * VPS/AWS, pfSense, Docker/Kubernetes, GitHub Actions, PostgreSQL/MySQL, Grafana/Zabbix.
+ */
 const requestFlow: Node[] = [
   {
     id: 'client',
     label: 'Client',
     icon: User,
-    detail: { pt: 'Navegador ou cliente HTTP que consome a aplicação via HTTPS.', en: 'Browser or HTTP client consuming the application over HTTPS.' },
+    detail: { pt: 'Usuário ou sistema consumindo a aplicação via HTTPS.', en: 'A user or system consuming the application over HTTPS.' },
   },
   {
     id: 'dns',
-    label: 'DNS / TLS',
+    label: 'DNS / SSL',
     icon: Globe,
-    detail: { pt: 'Resolução de nome para o servidor e certificado TLS para tráfego criptografado.', en: 'Name resolution to the server and a TLS certificate for encrypted traffic.' },
+    detail: { pt: 'Resolução de nome e certificado SSL/TLS para tráfego criptografado.', en: 'Name resolution and an SSL/TLS certificate for encrypted traffic.' },
   },
   {
-    id: 'nginx',
-    label: 'Nginx',
+    id: 'firewall',
+    label: 'Firewall · pfSense',
     icon: ShieldCheck,
-    detail: { pt: 'Proxy reverso: termina TLS, serve estáticos, aplica limites e encaminha para a API.', en: 'Reverse proxy: terminates TLS, serves static files, applies limits and forwards to the API.' },
+    detail: { pt: 'Regras de firewall, whitelist/blacklist e VPN para acesso administrativo; só as portas necessárias ficam expostas.', en: 'Firewall rules, allow/deny lists and VPN for administrative access; only the required ports are exposed.' },
+  },
+  {
+    id: 'k8s',
+    label: 'Kubernetes',
+    icon: Boxes,
+    detail: { pt: 'Orquestra os contêineres: réplicas, reinício automático e atualização sem indisponibilidade.', en: 'Orchestrates containers: replicas, automatic restarts and zero-downtime updates.' },
   },
   {
     id: 'app',
-    label: 'Application',
-    icon: Server,
-    detail: { pt: 'API stateless com regras de negócio, validação e logs estruturados.', en: 'Stateless API holding business rules, validation and structured logging.' },
-  },
-  {
-    id: 'docker',
-    label: 'Docker',
+    label: 'API · Docker',
     icon: Container,
-    detail: { pt: 'Cada serviço roda em um contêiner com imagem versionada e configuração via variáveis de ambiente.', en: 'Each service runs in a container from a versioned image, configured through environment variables.' },
+    detail: { pt: 'API REST empacotada em imagem Docker, configurada por variáveis de ambiente, rodando em VPS ou AWS.', en: 'A REST API packaged as a Docker image, configured through environment variables, running on VPS or AWS.' },
   },
   {
     id: 'db',
-    label: 'Database',
+    label: 'PostgreSQL / MySQL',
     icon: Database,
     detail: { pt: 'Banco relacional em rede privada, com volume persistente e backups.', en: 'Relational database on a private network, with a persistent volume and backups.' },
+  },
+  {
+    id: 'monitoring',
+    label: 'Grafana / Zabbix',
+    icon: Activity,
+    detail: { pt: 'Coleta métricas e logs de todas as camadas e dispara alertas antes que o usuário perceba o problema.', en: 'Collects metrics and logs from every layer and fires alerts before users notice a problem.' },
   },
 ]
 
 const deliveryFlow: Node[] = [
-  { id: 'commit', label: 'git push', icon: GitCommitHorizontal, detail: { pt: 'Alteração enviada para o repositório dispara o pipeline.', en: 'A change pushed to the repository triggers the pipeline.' } },
+  { id: 'commit', label: 'git push', icon: GitCommitHorizontal, detail: { pt: 'Alteração enviada ao GitHub dispara o workflow do GitHub Actions.', en: 'A change pushed to GitHub triggers the GitHub Actions workflow.' } },
   { id: 'build', label: 'Build', icon: Hammer, detail: { pt: 'Instalação de dependências, lint e compilação.', en: 'Dependency install, linting and compilation.' } },
-  { id: 'test', label: 'Test', icon: TestTube2, detail: { pt: 'Testes automatizados bloqueiam alterações com regressão.', en: 'Automated tests block changes that introduce regressions.' } },
-  { id: 'image', label: 'Image', icon: Boxes, detail: { pt: 'Imagem de contêiner gerada e publicada em um registry com tag imutável.', en: 'Container image built and pushed to a registry with an immutable tag.' } },
-  { id: 'deploy', label: 'Deploy', icon: Rocket, detail: { pt: 'Nova versão implantada com possibilidade de rollback para a anterior.', en: 'New version deployed with the ability to roll back to the previous one.' } },
+  { id: 'test', label: 'Test', icon: TestTube2, detail: { pt: 'Testes unitários e de integração bloqueiam alterações com regressão.', en: 'Unit and integration tests block changes that introduce regressions.' } },
+  { id: 'image', label: 'Docker image', icon: Server, detail: { pt: 'Imagem Docker gerada e publicada em um registry com tag imutável.', en: 'Docker image built and pushed to a registry with an immutable tag.' } },
+  { id: 'deploy', label: 'Deploy', icon: Rocket, detail: { pt: 'Nova versão aplicada no cluster, com rollback para a anterior se necessário.', en: 'New version rolled out to the cluster, with rollback to the previous one if needed.' } },
 ]
 
 function Flow({ nodes, direction, selected, onSelect, title }: { nodes: Node[]; direction: 'vertical' | 'horizontal'; selected: string; onSelect: (id: string) => void; title: string }) {
@@ -102,7 +111,7 @@ function Flow({ nodes, direction, selected, onSelect, title }: { nodes: Node[]; 
 
 export function Architecture() {
   const { t, l } = useLanguage()
-  const [selected, setSelected] = useState('nginx')
+  const [selected, setSelected] = useState('firewall')
   const all = [...requestFlow, ...deliveryFlow]
   const current = all.find((n) => n.id === selected) ?? requestFlow[0]
 

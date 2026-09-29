@@ -23,24 +23,26 @@ const pt = {
   hero: {
     viewProjects: 'Ver projetos',
     contact: 'Entrar em contato',
-    focus: 'Áreas de foco',
+    focus: 'Stack principal',
     resume: 'Baixar CV',
   },
   about: {
     eyebrow: 'Sobre',
     title: 'Código, infraestrutura e o caminho até produção',
     quickFacts: 'Resumo',
-    role: 'Perfil',
+    role: 'Cargo atual',
     location: 'Localização',
     availability: 'Disponibilidade',
-    languages: 'Idiomas do site',
+    languages: 'Idiomas',
+    education: 'Formação',
   },
   skills: {
     eyebrow: 'Stack tecnológica',
     title: 'Tecnologias por área',
-    intro: 'Separado entre o que já aplico e o que estou estudando, para uma leitura honesta do perfil.',
-    professional: 'Professional skills',
-    learning: 'Currently learning',
+    intro: 'Tecnologias usadas nas experiências profissionais, organizadas por área.',
+    professional: 'Experiência profissional',
+    learning: 'Em estudo',
+    deepening: 'Aprofundando atualmente',
   },
   experience: {
     eyebrow: 'Experiência',
@@ -73,7 +75,7 @@ const pt = {
     eyebrow: 'Engenharia',
     title: 'Como estruturo uma aplicação em produção',
     intro:
-      'Arquitetura de referência que uso para raciocinar sobre deploy de aplicações web. É um modelo ilustrativo, não a descrição de um projeto de cliente.',
+      'Arquitetura de referência montada com as ferramentas que uso no dia a dia. É um modelo ilustrativo de como organizo as camadas, não o diagrama de um ambiente específico.',
     requestFlow: 'Fluxo de requisição',
     deliveryFlow: 'Fluxo de entrega (CI/CD)',
     selectHint: 'Selecione uma etapa para ver a responsabilidade dela.',
@@ -81,8 +83,8 @@ const pt = {
   },
   infrastructure: {
     eyebrow: 'DevOps / Cloud',
-    title: 'Áreas de foco em infraestrutura',
-    intro: 'Os temas em que concentro meus estudos e minha atuação técnica.',
+    title: 'Infraestrutura na prática',
+    intro: 'As frentes de infraestrutura em que atuo, com as ferramentas usadas em cada uma.',
   },
   education: {
     eyebrow: 'Formação',
@@ -113,7 +115,7 @@ const pt = {
   contact: {
     eyebrow: 'Contato',
     title: 'Vamos conversar',
-    intro: 'Aberto a conversas sobre oportunidades em desenvolvimento backend, DevOps e cloud.',
+    intro: 'Aberto a conversas sobre oportunidades em DevOps, cloud e infraestrutura, no Brasil ou no exterior.',
     email: 'E-mail',
     linkedin: 'LinkedIn',
     github: 'GitHub',
@@ -179,24 +181,26 @@ const en: UIStrings = {
   hero: {
     viewProjects: 'View projects',
     contact: 'Get in touch',
-    focus: 'Focus areas',
+    focus: 'Core stack',
     resume: 'Download CV',
   },
   about: {
     eyebrow: 'About',
     title: 'Code, infrastructure and the path to production',
     quickFacts: 'At a glance',
-    role: 'Profile',
+    role: 'Current role',
     location: 'Location',
     availability: 'Availability',
-    languages: 'Site languages',
+    languages: 'Languages',
+    education: 'Education',
   },
   skills: {
     eyebrow: 'Tech stack',
     title: 'Technologies by area',
-    intro: 'Split between what I already apply and what I am currently studying, for an honest read of my profile.',
-    professional: 'Professional skills',
+    intro: 'Technologies used in my professional roles, grouped by area.',
+    professional: 'Professional experience',
     learning: 'Currently learning',
+    deepening: 'Currently deepening',
   },
   experience: {
     eyebrow: 'Experience',
@@ -229,7 +233,7 @@ const en: UIStrings = {
     eyebrow: 'Engineering',
     title: 'How I structure an application in production',
     intro:
-      'A reference architecture I use to reason about deploying web applications. It is an illustrative model, not a description of a client project.',
+      'A reference architecture built from the tools I use day to day. It illustrates how I organize the layers; it is not the diagram of a specific environment.',
     requestFlow: 'Request flow',
     deliveryFlow: 'Delivery flow (CI/CD)',
     selectHint: 'Select a stage to see what it is responsible for.',
@@ -237,8 +241,8 @@ const en: UIStrings = {
   },
   infrastructure: {
     eyebrow: 'DevOps / Cloud',
-    title: 'Infrastructure focus areas',
-    intro: 'The topics where I concentrate my studies and technical work.',
+    title: 'Infrastructure in practice',
+    intro: 'The infrastructure areas I work in, and the tools I use in each.',
   },
   education: {
     eyebrow: 'Education',
@@ -269,7 +273,7 @@ const en: UIStrings = {
   contact: {
     eyebrow: 'Contact',
     title: "Let's talk",
-    intro: 'Open to conversations about backend, DevOps and cloud engineering roles.',
+    intro: 'Open to conversations about DevOps, cloud and infrastructure roles, in Brazil or abroad.',
     email: 'Email',
     linkedin: 'LinkedIn',
     github: 'GitHub',

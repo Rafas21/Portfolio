@@ -31,6 +31,15 @@ export interface Profile {
   availability: Localized | null
   /** Indicadores da seção Sobre. Adicione somente números comprováveis. */
   highlights: Highlight[]
+  /** Idiomas falados, com nível. */
+  languages: SpokenLanguage[]
+  /** Tecnologias em aprofundamento (exibidas na seção Stack). */
+  currentlyLearning: Localized[]
+}
+
+export interface SpokenLanguage {
+  name: Localized
+  level: Localized
 }
 
 export interface Highlight {
@@ -59,6 +68,10 @@ export interface Experience {
   end: string | null
   location?: Localized
   employmentType?: Localized
+  /** Modelo de trabalho: presencial, híbrido, remoto. */
+  workplace?: Localized
+  /** Parágrafo de contexto exibido acima das responsabilidades. */
+  summary?: Localized
   responsibilities: Localized[]
   /** Somente resultados com dados reais. */
   achievements?: Localized[]
