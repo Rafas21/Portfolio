@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Rafael Souza — Software Developer · Backend · DevOps · Cloud</title>
+    <meta
+      name="description"
+      content="Portfólio de Rafael Souza, desenvolvedor de software com foco em backend, DevOps e cloud. Software developer portfolio — backend, DevOps and cloud engineering."
+    />
+    <meta name="author" content="Rafael Souza" />
+    <meta name="theme-color" content="#09090b" />
+    <link rel="canonical" href="https://rafael-souza.vercel.app/" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Rafael Souza" />
+    <meta property="og:title" content="Rafael Souza — Software Developer · Backend · DevOps · Cloud" />
+    <meta
+      property="og:description"
+      content="Backend development, containers, CI/CD, Linux and cloud infrastructure. Portfolio in English and Portuguese."
+    />
+    <meta property="og:url" content="https://rafael-souza.vercel.app/" />
+    <meta property="og:image" content="https://rafael-souza.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rafael Souza — Software Developer · Backend · DevOps · Cloud" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="profile:first_name" content="Rafael" />
+    <meta property="profile:last_name" content="Souza" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rafael Souza — Software Developer · Backend · DevOps · Cloud" />
+    <meta
+      name="twitter:description"
+      content="Backend development, containers, CI/CD, Linux and cloud infrastructure."
+    />
+    <meta name="twitter:image" content="https://rafael-souza.vercel.app/og-image.png" />
+
+    <!-- Schema.org Person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rafael Souza",
+        "url": "https://rafael-souza.vercel.app/",
+        "jobTitle": "Software Developer",
+        "knowsAbout": ["Backend development", "DevOps", "Cloud computing", "Linux", "Docker", "CI/CD", "Computer networking"],
+        "sameAs": ["https://www.linkedin.com/in/rafael-souza-dev21/", "https://github.com/Rafas21"]
+      }
+    </script>
+
+    <!-- Aplica o tema salvo antes da renderização (evita flash). Dark é o padrão. -->
+    <script>
+      try {
+        var saved = localStorage.getItem('theme')
+        if (saved === 'light') document.documentElement.classList.remove('dark')
+        document.documentElement.style.colorScheme = saved === 'light' ? 'light' : 'dark'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <div style="padding: 2rem; font-family: system-ui, sans-serif">
+        Rafael Souza — Software Developer · Backend · DevOps · Cloud.
+        <a href="https://www.linkedin.com/in/rafael-souza-dev21/">LinkedIn</a> ·
+        <a href="https://github.com/Rafas21">GitHub</a>
+      </div>
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

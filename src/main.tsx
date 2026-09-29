@@ -1,0 +1,18 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import '@fontsource-variable/inter'
+import '@fontsource-variable/jetbrains-mono'
+import './index.css'
+import App from './App'
+import { ErrorBoundary } from './components/ErrorBoundary'
+import { LanguageProvider } from './i18n/LanguageContext'
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <ErrorBoundary>
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
+    </ErrorBoundary>
+  </StrictMode>,
+)

@@ -1,0 +1,12 @@
+{
+  "name": "Rafael Souza — Portfolio",
+  "short_name": "Rafael Souza",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ],
+  "theme_color": "#09090b",
+  "background_color": "#09090b",
+  "display": "standalone",
+  "start_url": "/"
+}
