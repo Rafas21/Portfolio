@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Rafael Souza — DevOps Engineer · Cloud & Infrastructure</title>
+    <meta
+      name="description"
+      content="Rafael Souza, Engenheiro DevOps em Goiânia: Linux, Docker, Kubernetes, AWS, GitHub Actions, Python e redes. DevOps Engineer portfolio — cloud and infrastructure."
+    />
+    <meta name="author" content="Rafael Souza" />
+    <meta name="theme-color" content="#09090b" />
+    <link rel="canonical" href="https://rafael-souza.vercel.app/" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Rafael Souza" />
+    <meta property="og:title" content="Rafael Souza — DevOps Engineer · Cloud & Infrastructure" />
+    <meta
+      property="og:description"
+      content="DevOps Engineer based in Goiânia, Brazil. Linux, Docker, Kubernetes, AWS, GitHub Actions, Python and networking. Portfolio in English and Portuguese."
+    />
+    <meta property="og:url" content="https://rafael-souza.vercel.app/" />
+    <meta property="og:image" content="https://rafael-souza.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rafael Souza — DevOps Engineer · Cloud & Infrastructure" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="profile:first_name" content="Rafael" />
+    <meta property="profile:last_name" content="Souza" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rafael Souza — DevOps Engineer · Cloud & Infrastructure" />
+    <meta
+      name="twitter:description"
+      content="DevOps Engineer — Linux, Docker, Kubernetes, AWS, GitHub Actions, Python and networking."
+    />
+    <meta name="twitter:image" content="https://rafael-souza.vercel.app/og-image.png" />
+
+    <!-- Schema.org Person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rafael Souza",
+        "url": "https://rafael-souza.vercel.app/",
+        "email": "mailto:fael62485@gmail.com",
+        "jobTitle": "DevOps Engineer",
+        "worksFor": { "@type": "Organization", "name": "Terrano Urbanismo" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Anhanguera Educacional" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Goiânia", "addressRegion": "GO", "addressCountry": "BR" },
+        "knowsLanguage": ["pt-BR", "en", "es", "fr"],
+        "knowsAbout": ["DevOps", "Linux", "Docker", "Kubernetes", "AWS", "GitHub Actions", "CI/CD", "Python", "Computer networking", "pfSense", "Grafana", "Zabbix"],
+        "sameAs": ["https://www.linkedin.com/in/rafael-souza-dev21/", "https://github.com/Rafas21"]
+      }
+    </script>
+
+    <!-- Aplica o tema salvo antes da renderização (evita flash). Dark é o padrão. -->
+    <script>
+      try {
+        var saved = localStorage.getItem('theme')
+        if (saved === 'light') document.documentElement.classList.remove('dark')
+        document.documentElement.style.colorScheme = saved === 'light' ? 'light' : 'dark'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <div style="padding: 2rem; font-family: system-ui, sans-serif">
+        Rafael Souza — DevOps Engineer · Cloud & Infrastructure.
+        <a href="https://www.linkedin.com/in/rafael-souza-dev21/">LinkedIn</a> ·
+        <a href="https://github.com/Rafas21">GitHub</a>
+      </div>
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
